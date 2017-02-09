@@ -9,11 +9,32 @@ export default class Subject extends Component {
     //passsing props to the component class that we are extending
     //so we can access it through this.props, etc...
     //you will always need super if extending to another constructor
-    super(props)
+    super(props);
+    this.state = {buttonClick: true, headerClick: false};
+    this.buttonClick = this.buttonClick.bind(this);
+    this.headerClick = this.headerClick.bind(this);
   }
+
 
   //event handlers here
 
+
+
+buttonClick() {
+  this.setState(prevState => ({
+    //take whatever you were and flip it
+  buttonClick: !prevState.buttonClick
+  }));
+  console.log(this.state.buttonClick);
+}
+
+headerClick() {
+  this.setState(prevState => ({
+    headerClick: !prevState.headerClick
+  }));
+
+  console.log(this.state.headerClick);
+}
 
 //just like any component, you need to render it
 render() {
@@ -21,8 +42,10 @@ render() {
   return(
     //now inherited props from the app component and rendering them here//
     //map loops over items in the array
+
     <div>
-        <h1>{this.props.items.subject}</h1>
+    <button onClick={this.buttonClick}>{this.state.buttonClick ? 'WOW' : 'GAH'}</button>
+        <h1 onClick={this.headerClick}>{this.props.items.subject}</h1>
           <ul>
             {this.props.items.resources.map((resource) => {
               return(
