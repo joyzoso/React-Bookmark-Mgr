@@ -13,6 +13,8 @@ export default class Subject extends Component {
     this.state = {buttonClick: true, headerClick: false};
     this.buttonClick = this.buttonClick.bind(this);
     this.headerClick = this.headerClick.bind(this);
+    this.handleTyping = this.handleTyping.bind(this);
+    // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
 
@@ -32,9 +34,21 @@ headerClick() {
   this.setState(prevState => ({
     headerClick: !prevState.headerClick
   }));
-
   console.log(this.state.headerClick);
 }
+
+handleTyping(event) {
+  this.setState({newResourceTitle: event.target.value});
+  event.preventDefault();
+  console.log(this.state.newResourceTitle);
+}
+
+// handleKeyPress(event) {
+//   if(event.key === 'Enter') {
+//     this.setState({ value: event.target.value })
+//     console.log(this.state.value);
+//   }
+// }
 
 //just like any component, you need to render it
 render() {
@@ -48,13 +62,17 @@ render() {
         <h1 onClick={this.headerClick}>{this.props.items.subject}</h1>
           <ul>
             {this.props.items.resources.map((resource) => {
+              if(this.state.headerClick) {
               return(
                 <li>
                 <a href={resource.url}>{resource.title}</a>
                 </li>
-              )}
-            )}
+              )
+              }
+            })
+          }
           </ul>
+          <input type="text" onChange={this.handleTyping}/>
     </div>
     )
 

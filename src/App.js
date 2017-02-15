@@ -56,7 +56,10 @@ class App extends Component {
             {title: "7 - 10 ReactJS", url: "https://www.youtube.com/watch?v=OcM__8q6p4c&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS&index=8"},
             {title: "Function Binding", url: "https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind"},
             {title: "Alternative Event Handlers", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
-            {title: "Javascript Events & Data Changes", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"}
+            {title: "Javascript Events & Data Changes", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
+            {title: "Controlled Inputs", url: "https://www.youtube.com/watch?v=BvtQMxekmH0"},
+            {title: "Forms Article", url: "https://facebook.github.io/react/docs/forms.html"}
+
 
           ]
         }
