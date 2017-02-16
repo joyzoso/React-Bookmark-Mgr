@@ -10,16 +10,24 @@ export default class Subject extends Component {
     //so we can access it through this.props, etc...
     //you will always need super if extending to another constructor
     super(props);
-    this.state = {buttonClick: true, headerClick: false};
+    this.state = {buttonClick: true, headerClick: false, title: '', url: ''};
     this.buttonClick = this.buttonClick.bind(this);
     this.headerClick = this.headerClick.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
     // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
+handleSubmit(event) {
+event.preventDefault();
+const newResource = {
+  title: this.state.title,
+  url: this.state.url
+}
+  this.props.addResource(this.props.index, newResource);
 
-  //event handlers here
-
+}
 
 
 buttonClick() {
@@ -27,20 +35,21 @@ buttonClick() {
     //take whatever you were and flip it
   buttonClick: !prevState.buttonClick
   }));
-  console.log(this.state.buttonClick);
+
 }
 
 headerClick() {
   this.setState(prevState => ({
     headerClick: !prevState.headerClick
   }));
-  console.log(this.state.headerClick);
+  // console.log(this.state);
+
 }
 
 handleTyping(event) {
-  this.setState({newResourceTitle: event.target.value});
+  this.setState({[event.target.name]: event.target.value});
   event.preventDefault();
-  console.log(this.state.newResourceTitle);
+  console.log(this.state);
 }
 
 // handleKeyPress(event) {
@@ -53,6 +62,8 @@ handleTyping(event) {
 //just like any component, you need to render it
 render() {
   //actually returning the view below (aka <h1>,,,,,,)
+  const title = "title";
+  const url = "url";
   return(
     //now inherited props from the app component and rendering them here//
     //map loops over items in the array
@@ -72,7 +83,11 @@ render() {
             })
           }
           </ul>
-          <input type="text" onChange={this.handleTyping}/>
+          <form>
+          <input name="title" type="text" placeholder = {title} onChange={this.handleTyping}/>
+          <input name="url" type="text" placeholder = {url} onChange={this.handleTyping}/>
+          <button onClick={this.handleSubmit}> Get It! </button>
+        </form>
     </div>
     )
 

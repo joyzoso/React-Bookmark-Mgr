@@ -66,9 +66,16 @@ class App extends Component {
 
             ]};
 
+            this.addNewResource = this.addNewResource.bind(this);
           }
 
+    addNewResource(subject, resource) {
+      const tempState = this.state;
+      tempState.resources[subject].resources.push(resource);
+      this.setState(tempState);
+      console.log("hey");
 
+    }
 
 //calling render function (how do I display this) every component needs a render function
   render() {
@@ -76,8 +83,8 @@ class App extends Component {
     return (
       //Subject component that has a prop called subject and setting to the first through 3rd  elements in our resources object from the app component state
       <div>
-        {this.state.resources.map((resource) => {
-          return <Subject items={resource}/>
+        {this.state.resources.map((resource, index) => {
+          return <Subject index={index} addResource={this.addNewResource} items={resource}/>
       })}
       </div>)
     }
