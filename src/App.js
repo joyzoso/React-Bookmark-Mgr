@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 // importing component from the file
 import Subject from './Subject.js';
+import Dropdown from './Dropdown.js';
 
 //creating new class/component called app, which inherits from the component class
 class App extends Component {
@@ -86,7 +87,8 @@ class App extends Component {
         {this.state.resources.map((resource, index) => {
           return <Subject index={index} addResource={this.addNewResource} items={resource}/>
       })}
-      </div>)
+      </div>
+    )
     }
 
 

@@ -1,5 +1,6 @@
 //need on every line
 import React, { Component } from 'react';
+import Dropdown from './Dropdown.js';
 
 //exporting and creating class/component called Subject
 export default class Subject extends Component {
@@ -15,6 +16,7 @@ export default class Subject extends Component {
     this.headerClick = this.headerClick.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
 
     // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
@@ -52,6 +54,14 @@ handleTyping(event) {
   console.log(this.state);
 }
 
+handleDropdown(evt) {
+    if(this.state.value !== evt.target.value) {
+     this.setState({
+       selectValue:evt.target.value
+     });
+   }
+     console.log(evt.target.value);
+   };
 // handleKeyPress(event) {
 //   if(event.key === 'Enter') {
 //     this.setState({ value: event.target.value })
@@ -70,6 +80,7 @@ render() {
 
     <div>
     <button onClick={this.buttonClick}>{this.state.buttonClick ? 'WOW' : 'GAH'}</button>
+    <div><Dropdown/></div>
         <h1 onClick={this.headerClick}>{this.props.items.subject}</h1>
           <ul>
             {this.props.items.resources.map((resource) => {
