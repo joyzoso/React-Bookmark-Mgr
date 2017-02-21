@@ -14,7 +14,9 @@ class App extends Component {
 
     //state can only be initially set for the component (so intitializing state for the compnent)
     //creating an object (state object), in this case called resources
-    this.state = {resources: [
+    this.state = {
+      subject: '',
+      resources: [
       //array of resources grouped by categories
       //two elements in my resources array
       {subject: "Functional Programming/JS Basics", resources:
@@ -69,8 +71,6 @@ class App extends Component {
             {title: "State & Lifecycle", url: "https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"},
 
 
-
-
           ]
         },
 
@@ -89,10 +89,13 @@ class App extends Component {
           ]
         }
 
-            ]};
+      ]};
 
-            this.addNewResource = this.addNewResource.bind(this);
-          }
+    this.addNewResource = this.addNewResource.bind(this);
+    this.addNewSubject = this.addNewSubject.bind(this);
+    this.handleTyping = this.handleTyping.bind(this);
+
+    }
 
     addNewResource(subject, resource) {
       const tempState = this.state;
@@ -102,19 +105,43 @@ class App extends Component {
 
     }
 
+    addNewSubject(event) {
+      event.preventDefault();
+      const newSubject = {
+      subject: this.state.subject,
+      resources: []
+    };
+      const tempState = this.state;
+      tempState.resources.push(newSubject);
+      this.setState(tempState);
+      console.log("hdsjdsd");
+    }
+
+    handleTyping(event) {
+      this.setState({[event.target.name]: event.target.value});
+      console.log(this.state);
+    }
+
+
 //calling render function (how do I display this) every component needs a render function
-  render() {
+render() {
     //actual jsx (html below) that we are returning to the view
-    return (
+  return (
       //Subject component that has a prop called subject and setting to the first through 3rd  elements in our resources object from the app component state
+  <div>
       <div>
         {this.state.resources.map((resource, index) => {
           return <Subject index={index} addResource={this.addNewResource} items={resource}/>
       })}
       </div>
-    )
-    }
-
+        <form>
+          <input name="subject" type="text" placeholder="subject" onChange={this.handleTyping}/>
+          <br></br>
+          <button onClick={this.addNewSubject}>{this.state.addNewSubject} Add New Subject</button>
+        </form>
+  </div>
+          )
+        }
 
 
 }
