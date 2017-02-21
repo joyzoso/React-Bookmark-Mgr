@@ -106,6 +106,15 @@ class App extends Component {
 
     }
 
+    /*
+      Edited this to take in a new subject object which just looks like:
+            {subject: "title", resources: []}
+
+      We then create a copy of our state called tempState
+      Then, we push this new Subject onto our resources array
+      And finally, we set the state with updated tempState object.
+    */
+
     addNewSubject(newSubject) {
       const tempState = this.state;
       tempState.resources.push(newSubject);
@@ -131,7 +140,12 @@ render() {
         })}
         </div>
 
-        <SubjectForm addNewSubject={this.addNewSubject} />
+        {/*
+          Render a new SubjectForm component, with a prop `addSubject`. We pass
+          in our addNewSubject method so it can be called later within our SubjectForm
+          component.
+        */}
+        <SubjectForm addSubject={this.addNewSubject} />
     </div>
           )
         }
