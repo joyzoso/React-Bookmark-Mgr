@@ -124,15 +124,15 @@ render() {
     //actual jsx (html below) that we are returning to the view
   return (
       //Subject component that has a prop called subject and setting to the first through 3rd  elements in our resources object from the app component state
-  <div>
-      <div>
-        {this.state.resources.map((resource, index) => {
-          return <Subject index={index} addResource={this.addNewResource} items={resource}/>
-      })}
-      </div>
+    <div>
+        <div>
+          {this.state.resources.map((resource, index) => {
+            return <Subject index={index} addResource={this.addNewResource} items={resource}/>
+        })}
+        </div>
 
-      <SubjectForm addNewSubject={this.addNewSubject} />
-  </div>
+        <SubjectForm addNewSubject={this.addNewSubject} />
+    </div>
           )
         }
 

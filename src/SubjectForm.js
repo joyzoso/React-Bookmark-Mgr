@@ -11,7 +11,6 @@ export default class SubjectForm extends Component {
   handleTyping(event){
     event.preventDefault();
     this.setState({[event.target.name]: event.target.value});
-    console.log(this.state);
   }
 
   addNewSubject(event){
