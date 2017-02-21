@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // importing component from the file
 import Subject from './Subject.js';
 import Dropdown from './Dropdown.js'
+import SubjectForm from './SubjectForm'
 
 //creating new class/component called app, which inherits from the component class
 class App extends Component {
@@ -105,12 +106,7 @@ class App extends Component {
 
     }
 
-    addNewSubject(event) {
-      event.preventDefault();
-      const newSubject = {
-      subject: this.state.subject,
-      resources: []
-    };
+    addNewSubject(newSubject) {
       const tempState = this.state;
       tempState.resources.push(newSubject);
       this.setState(tempState);
@@ -134,11 +130,8 @@ render() {
           return <Subject index={index} addResource={this.addNewResource} items={resource}/>
       })}
       </div>
-        <form>
-          <input name="subject" type="text" placeholder="subject" onChange={this.handleTyping}/>
-          <br></br>
-          <button onClick={this.addNewSubject}>{this.state.addNewSubject} Add New Subject</button>
-        </form>
+
+      <SubjectForm addNewSubject={this.addNewSubject} />
   </div>
           )
         }
