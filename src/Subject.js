@@ -16,7 +16,7 @@ export default class Subject extends Component {
     this.headerClick = this.headerClick.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDropdown = this.handleDropdown.bind(this);
+    // this.handleDropdown = this.handleDropdown.bind(this);
 
     // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
@@ -37,7 +37,7 @@ buttonClick() {
     //take whatever you were and flip it
   buttonClick: !prevState.buttonClick
   }));
-
+  console.log(this.state);
 }
 
 headerClick() {
@@ -79,8 +79,6 @@ render() {
     //map loops over items in the array
 
     <div>
-    <button onClick={this.buttonClick}>{this.state.buttonClick ? 'WOW' : 'GAH'}</button>
-    <div><Dropdown/></div>
         <h1 onClick={this.headerClick}>{this.props.items.subject}</h1>
           <ul>
             {this.props.items.resources.map((resource) => {
@@ -89,18 +87,20 @@ render() {
                 <li>
                 <a href={resource.url}>{resource.title}</a>
                 </li>
-              )
-              }
-            })
-          }
+                    )
+                  }
+                })
+            }
           </ul>
-          <form>
+        <form>
           <input name="title" type="text" placeholder = {title} onChange={this.handleTyping}/>
           <input name="url" type="text" placeholder = {url} onChange={this.handleTyping}/>
-          <button onClick={this.handleSubmit}> Get It! </button>
+          <button onClick={this.handleSubmit}> Show it! </button>
         </form>
+        <button onClick={this.buttonClick}>{this.state.buttonClick ? 'WOW' : 'GAH'}</button>
+        <br></br>
+        <div><Dropdown/></div>
     </div>
-    )
-
+        )
   }
 }

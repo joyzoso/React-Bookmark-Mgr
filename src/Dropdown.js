@@ -5,7 +5,7 @@ export default class Dropdown extends Component {
 constructor(props) {
   super(props);
   this.handleDropdown = this.handleDropdown.bind(this);
-  this.state = {handleDropdown: ''};
+  this.state = {selectValue: ''};
 
 }
 
@@ -25,11 +25,12 @@ render() {
 <div>
       <select value={this.state.selectValue}
         onChange={this.handleDropdown}>
-         <option value="Orange">Orange</option>
-         <option value="Radish">Radish</option>
-         <option value="Cherry">Cherry</option>
-       </select>
-       {message}
+         <option value="Functional Programming">Function Programming</option>
+         <option value="ES6 Basics">ES6 Basics</option>
+         <option value="React Basics">React Basics</option>
+         <option value="React Advanced">React Advanced</option>
+        <option value="Miscellaneous">Miscellaneous</option>
+      </select> {message}
  </div>
  );
 }

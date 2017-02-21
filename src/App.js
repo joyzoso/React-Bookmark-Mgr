@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 // importing component from the file
 import Subject from './Subject.js';
-import Dropdown from './Dropdown.js';
+import Dropdown from './Dropdown.js'
 
 //creating new class/component called app, which inherits from the component class
 class App extends Component {
@@ -25,7 +25,9 @@ class App extends Component {
                   {title: "ES6 Video 1 ", url: "https://www.youtube.com/watch?v=sjyJBL5fkp8"},
                   {title: "ES6 Video 2 ", url: "https://www.youtube.com/watch?v=6sQDTgOqh-I"},
                   {title: "Learning JS in 2016", url: "https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f#.olyvd43o1"},
-                  {title: "Spread Operator", url: "https://davidwalsh.name/spread-operator"}
+                  {title: "Spread Operator", url: "https://davidwalsh.name/spread-operator"},
+                  {title: "Hexlet Programming", url: "https://en.hexlet.io/courses/intro_to_programming"},
+                  {title: "Functional Programming in JS", url: "https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257#.t0uh9k9zm"}
                 ]
       },
 
@@ -59,8 +61,30 @@ class App extends Component {
             {title: "Alternative Event Handlers", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
             {title: "Javascript Events & Data Changes", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
             {title: "Controlled Inputs", url: "https://www.youtube.com/watch?v=BvtQMxekmH0"},
-            {title: "Forms Article", url: "https://facebook.github.io/react/docs/forms.html"}
+            {title: "Forms Article", url: "https://facebook.github.io/react/docs/forms.html"},
+            {title: "Mindspace Basics 11-14", url: "https://www.youtube.com/watch?v=Oioo0IdoEls"},
+            {title: "Lifecycle Methods", url: "https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"},
+            {title: "React.Component", url: "https://facebook.github.io/react/docs/react-component.html"},
+            {title: "StackO Lifecycle", url: "http://stackoverflow.com/questions/38929991/what-are-typical-use-cases-for-react-lifecycle-methods-like-componentwillreceive"},
+            {title: "State & Lifecycle", url: "https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"},
 
+
+
+
+          ]
+        },
+
+        {subject: "Miscellaneous", resources:
+          [
+            {title: "Click to Edit Fields", url: "https://themeteorchef.com/tutorials/click-to-edit-fields-in-react"},
+            {title: "Add React Boostrap", url: "https://github.com/facebookincubator/create-react-app/issues/301"},
+            {title: "ReactJS.NET", url: "https://reactjs.net/getting-started/tutorial.html"},
+            {title: "Pluralsight React", url: "https://www.pluralsight.com/courses/react-boilerplate-building-scalable-apps"},
+            {title: "Darth Vader Analogy", url: "https://medium.freecodecamp.com/react-props-state-explained-through-darth-vaders-hunt-for-the-rebels-8ee486576492#.nkfnvgo8s"},
+            {title: "Understanding Props & State", url: "https://themeteorchef.com/tutorials/understanding-props-and-state-in-react"},
+            {title: "Props and passing between Components", url: "https://www.quora.com/In-React%E2%80%99s-TODOs-example-how-do-you-explain-props-and-how-they-go-from-one-component-to-another"},
+            {title: "Understanding State", url: "https://thinkster.io/understanding-react-state"},
+            {title: "State vs Props", url: "https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257#.t0uh9k9zm"}
 
           ]
         }
