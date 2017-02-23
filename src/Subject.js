@@ -11,14 +11,14 @@ export default class Subject extends Component {
     //so we can access it through this.props, etc...
     //you will always need super if extending to another constructor
     super(props);
-    this.state = {buttonClick: true, headerClick: false, title: '', url: ''};
+    this.state = {buttonClick: true, headerClick: false, title: '', url: '', deleteValue: ''};
     this.buttonClick = this.buttonClick.bind(this);
     this.headerClick = this.headerClick.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleDropdown = this.handleDropdown.bind(this);
+    this.handleSubjectDelete = this.handleSubjectDelete.bind(this);
+    this.handleResourceDelete = this.handleResourceDelete.bind(this);
 
-    // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
 handleSubmit(event) {
@@ -61,14 +61,23 @@ handleDropdown(evt) {
      });
    }
      console.log(evt.target.value);
-   };
-// handleKeyPress(event) {
-//   if(event.key === 'Enter') {
-//     this.setState({ value: event.target.value })
-//     console.log(this.state.value);
-//   }
-// }
+   }
 
+   handleSubjectDelete(evt) {
+
+       this.props.deleteSubject(this.props.index);
+       evt.preventDefault();
+
+       console.log(this.state);
+   }
+
+   handleResourceDelete(evt) {
+
+     this.props.deleteResource(this.props.index, evt.target.name);
+     evt.preventDefault();
+
+
+   }
 //just like any component, you need to render it
 render() {
   //actually returning the view below (aka <h1>,,,,,,)
@@ -80,12 +89,14 @@ render() {
 
     <div>
         <h1 onClick={this.headerClick}>{this.props.items.subject}</h1>
+        <button onClick={this.handleSubjectDelete}> Delete Subject </button>
           <ul>
-            {this.props.items.resources.map((resource) => {
+            {this.props.items.resources.map((resource, index) => {
               if(this.state.headerClick) {
               return(
                 <li>
                 <a href={resource.url}>{resource.title}</a>
+                <br></br><button name={index} onClick={this.handleResourceDelete}> delete </button>
                 </li>
                     )
                   }

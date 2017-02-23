@@ -95,6 +95,8 @@ class App extends Component {
     this.addNewResource = this.addNewResource.bind(this);
     this.addNewSubject = this.addNewSubject.bind(this);
     this.handleTyping = this.handleTyping.bind(this);
+    this.handleSubjectDelete = this.handleSubjectDelete.bind(this);
+    this.handleResourceDelete = this.handleResourceDelete.bind(this);
 
     }
 
@@ -119,7 +121,7 @@ class App extends Component {
       const tempState = this.state;
       tempState.resources.push(newSubject);
       this.setState(tempState);
-      console.log("hdsjdsd");
+
     }
 
     handleTyping(event) {
@@ -127,6 +129,19 @@ class App extends Component {
       console.log(this.state);
     }
 
+    handleSubjectDelete(index) {
+      const tempState = this.state;
+      tempState.resources.splice(index, 1);
+      this.setState(tempState);
+
+    }
+
+
+    handleResourceDelete(subjectIndex, resourceIndex) {
+      const tempState = this.state;
+      tempState.resources[subjectIndex].resources.splice(resourceIndex, 1);
+      this.setState(tempState);
+    }
 
 //calling render function (how do I display this) every component needs a render function
 render() {
@@ -136,7 +151,7 @@ render() {
     <div>
         <div>
           {this.state.resources.map((resource, index) => {
-            return <Subject index={index} addResource={this.addNewResource} items={resource}/>
+            return <Subject index={index} addResource={this.addNewResource} items={resource} deleteSubject={this.handleSubjectDelete} deleteResource={this.handleResourceDelete}/>
         })}
         </div>
 
