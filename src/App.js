@@ -142,8 +142,8 @@ render() {
 
         {/*
           Render a new SubjectForm component, with a prop `addSubject`. We pass
-          in our addNewSubject method so it can be called later within our SubjectForm
-          component.
+          in our addNewSubject method so it can be called later within our
+          SubjectForm component.
         */}
         <SubjectForm addSubject={this.addNewSubject} />
     </div>
