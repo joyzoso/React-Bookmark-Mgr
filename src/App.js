@@ -1,28 +1,20 @@
-//destructuring the component
-import React, { Component } from 'react';
-// importing component from the file
-import Subject from './Subject.js';
-import Dropdown from './Dropdown.js'
-import SubjectForm from './SubjectForm'
 
-//creating new class/component called app, which inherits from the component class
+import React, { Component } from 'react';
+import Subject from './Subject.js';
+import Dropdown from './Dropdown.js';
+import SubjectForm from './SubjectForm';
+import Icon from 'react-fa';
+
+
 class App extends Component {
-  //construcor function for everu new class/component that is created
   constructor() {
-    //super function is always needed when calling constructor
-    //super means I am a class that is inherited and want to defint its pwn constructor
     super();
 
-    //state can only be initially set for the component (so intitializing state for the compnent)
-    //creating an object (state object), in this case called resources
     this.state = {
       subject: '',
       resources: [
-      //array of resources grouped by categories
-      //two elements in my resources array
-      {subject: "Functional Programming/JS Basics", resources:
-      //resources array with 3 resource objects
-      // 2 elements inside each of these 3 objects
+        {subject: "Functional Programming/JS Basics", resources:
+
                 [
                   {title: "Higher Order Functions ", url: "https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84"},
                   {title: "ES6 Video 1 ", url: "https://www.youtube.com/watch?v=sjyJBL5fkp8"},
@@ -32,9 +24,9 @@ class App extends Component {
                   {title: "Hexlet Programming", url: "https://en.hexlet.io/courses/intro_to_programming"},
                   {title: "Functional Programming in JS", url: "https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257#.t0uh9k9zm"}
                 ]
-      },
+        },
 
-      //another resources array with N objects, each having 2 elements
+
       {subject: "ES6 Basics", resources:
                 [
                   {title: "Var Let & Const", url: "https://www.youtube.com/watch?v=sjyJBL5fkp8"},
@@ -50,47 +42,45 @@ class App extends Component {
                 ]
         },
 
-        //another resources array with N objects, each having 2 elements
+
         {subject: "React Basics", resources:
-          [
-            {title: "Thinking In React", url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
-            {title: "React JS Basics", url: "https://www.youtube.com/watch?v=JPT3bFIwJYA&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS"},
-            {title: "Thinking In React", url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
-            {title: "More react Basics", url: "https://www.youtube.com/watch?v=JPT3bFIwJYA"},
-            {title: "Handling Events", url: "https://facebook.github.io/react/docs/handling-events.html"},
-            {title: "Stateless Functional Components", url: "https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc#.hj5pmgqpy"},
-            {title: "7 - 10 ReactJS", url: "https://www.youtube.com/watch?v=OcM__8q6p4c&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS&index=8"},
-            {title: "Function Binding", url: "https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind"},
-            {title: "Alternative Event Handlers", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
-            {title: "Javascript Events & Data Changes", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
-            {title: "Controlled Inputs", url: "https://www.youtube.com/watch?v=BvtQMxekmH0"},
-            {title: "Forms Article", url: "https://facebook.github.io/react/docs/forms.html"},
-            {title: "Mindspace Basics 11-14", url: "https://www.youtube.com/watch?v=Oioo0IdoEls"},
-            {title: "Lifecycle Methods", url: "https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"},
-            {title: "React.Component", url: "https://facebook.github.io/react/docs/react-component.html"},
-            {title: "StackO Lifecycle", url: "http://stackoverflow.com/questions/38929991/what-are-typical-use-cases-for-react-lifecycle-methods-like-componentwillreceive"},
-            {title: "State & Lifecycle", url: "https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"},
-
-
-          ]
+                [
+                  {title: "Thinking In React", url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
+                  {title: "React JS Basics", url: "https://www.youtube.com/watch?v=JPT3bFIwJYA&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS"},
+                  {title: "Thinking In React", url: "https://facebook.github.io/react/docs/thinking-in-react.html"},
+                  {title: "More react Basics", url: "https://www.youtube.com/watch?v=JPT3bFIwJYA"},
+                  {title: "Handling Events", url: "https://facebook.github.io/react/docs/handling-events.html"},
+                  {title: "Stateless Functional Components", url: "https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc#.hj5pmgqpy"},
+                  {title: "7 - 10 ReactJS", url: "https://www.youtube.com/watch?v=OcM__8q6p4c&list=PL55RiY5tL51oyA8euSROLjMFZbXaV7skS&index=8"},
+                  {title: "Function Binding", url: "https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind"},
+                  {title: "Alternative Event Handlers", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
+                  {title: "Javascript Events & Data Changes", url: "https://www.youtube.com/watch?v=_D1JGNidMr4&feature=youtu.be"},
+                  {title: "Controlled Inputs", url: "https://www.youtube.com/watch?v=BvtQMxekmH0"},
+                  {title: "Forms Article", url: "https://facebook.github.io/react/docs/forms.html"},
+                  {title: "Mindspace Basics 11-14", url: "https://www.youtube.com/watch?v=Oioo0IdoEls"},
+                  {title: "Lifecycle Methods", url: "https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"},
+                  {title: "React.Component", url: "https://facebook.github.io/react/docs/react-component.html"},
+                  {title: "StackO Lifecycle", url: "http://stackoverflow.com/questions/38929991/what-are-typical-use-cases-for-react-lifecycle-methods-like-componentwillreceive"},
+                  {title: "State & Lifecycle", url: "https://facebook.github.io/react/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class"}
+                ]
         },
 
         {subject: "Miscellaneous", resources:
-          [
-            {title: "Click to Edit Fields", url: "https://themeteorchef.com/tutorials/click-to-edit-fields-in-react"},
-            {title: "Add React Boostrap", url: "https://github.com/facebookincubator/create-react-app/issues/301"},
-            {title: "ReactJS.NET", url: "https://reactjs.net/getting-started/tutorial.html"},
-            {title: "Pluralsight React", url: "https://www.pluralsight.com/courses/react-boilerplate-building-scalable-apps"},
-            {title: "Darth Vader Analogy", url: "https://medium.freecodecamp.com/react-props-state-explained-through-darth-vaders-hunt-for-the-rebels-8ee486576492#.nkfnvgo8s"},
-            {title: "Understanding Props & State", url: "https://themeteorchef.com/tutorials/understanding-props-and-state-in-react"},
-            {title: "Props and passing between Components", url: "https://www.quora.com/In-React%E2%80%99s-TODOs-example-how-do-you-explain-props-and-how-they-go-from-one-component-to-another"},
-            {title: "Understanding State", url: "https://thinkster.io/understanding-react-state"},
-            {title: "State vs Props", url: "https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257#.t0uh9k9zm"}
+                [
+                  {title: "Click to Edit Fields", url: "https://themeteorchef.com/tutorials/click-to-edit-fields-in-react"},
+                  {title: "Add React Boostrap", url: "https://github.com/facebookincubator/create-react-app/issues/301"},
+                  {title: "ReactJS.NET", url: "https://reactjs.net/getting-started/tutorial.html"},
+                  {title: "Pluralsight React", url: "https://www.pluralsight.com/courses/react-boilerplate-building-scalable-apps"},
+                  {title: "Darth Vader Analogy", url: "https://medium.freecodecamp.com/react-props-state-explained-through-darth-vaders-hunt-for-the-rebels-8ee486576492#.nkfnvgo8s"},
+                  {title: "Understanding Props & State", url: "https://themeteorchef.com/tutorials/understanding-props-and-state-in-react"},
+                  {title: "Props and passing between Components", url: "https://www.quora.com/In-React%E2%80%99s-TODOs-example-how-do-you-explain-props-and-how-they-go-from-one-component-to-another"},
+                  {title: "Understanding State", url: "https://thinkster.io/understanding-react-state"},
+                  {title: "State vs Props", url: "https://medium.com/javascript-scene/why-learn-functional-programming-in-javascript-composing-software-ea13afc7a257#.t0uh9k9zm"}
 
-          ]
+                ]
         }
 
-      ]};
+    ]};
 
     this.addNewResource = this.addNewResource.bind(this);
     this.addNewSubject = this.addNewSubject.bind(this);
@@ -98,42 +88,28 @@ class App extends Component {
     this.handleSubjectDelete = this.handleSubjectDelete.bind(this);
     this.handleResourceDelete = this.handleResourceDelete.bind(this);
 
-    }
+  }
 
     addNewResource(subject, resource) {
       const tempState = this.state;
       tempState.resources[subject].resources.push(resource);
       this.setState(tempState);
-      console.log("hey");
-
     }
-
-    /*
-      Edited this to take in a new subject object which just looks like:
-            {subject: "title", resources: []}
-
-      We then create a copy of our state called tempState
-      Then, we push this new Subject onto our resources array
-      And finally, we set the state with updated tempState object.
-    */
 
     addNewSubject(newSubject) {
       const tempState = this.state;
       tempState.resources.push(newSubject);
       this.setState(tempState);
-
     }
 
     handleTyping(event) {
       this.setState({[event.target.name]: event.target.value});
-      console.log(this.state);
     }
 
     handleSubjectDelete(index) {
       const tempState = this.state;
       tempState.resources.splice(index, 1);
       this.setState(tempState);
-
     }
 
 
@@ -143,31 +119,30 @@ class App extends Component {
       this.setState(tempState);
     }
 
-//calling render function (how do I display this) every component needs a render function
+
 render() {
-    //actual jsx (html below) that we are returning to the view
+
   return (
-      //Subject component that has a prop called subject and setting to the first through 3rd  elements in our resources object from the app component state
     <div>
         <div>
-          {this.state.resources.map((resource, index) => {
+          <br></br>
+          <div>
+          <h5><Icon name="hand-spock-o fa-2x"/>LIVE LONG & ORGANIZE YOUR RESOURCES</h5>
+          <hr/>
+          </div>
+            {this.state.resources.map((resource, index) => {
             return <Subject index={index} addResource={this.addNewResource} items={resource} deleteSubject={this.handleSubjectDelete} deleteResource={this.handleResourceDelete}/>
-        })}
+            })}
         </div>
-
-        {/*
-          Render a new SubjectForm component, with a prop `addSubject`. We pass
-          in our addNewSubject method so it can be called later within our
-          SubjectForm component.
-        */}
+        <br/>
         <SubjectForm addSubject={this.addNewSubject} />
+
     </div>
           )
         }
 
-
 }
 
-/* exporting app component so that we can import it into other components and files */
+
 
 export default App;

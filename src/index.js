@@ -1,5 +1,6 @@
 // 2 classes, react and react dom
 import React from 'react';
+import Icon from 'react-fa';
 // reactDom is the virtual dom and will update elements that have changed state
 import ReactDOM from 'react-dom';
 //our app componentn

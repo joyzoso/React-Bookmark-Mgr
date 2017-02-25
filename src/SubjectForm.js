@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import Icon from 'react-fa';
 
 export default class SubjectForm extends Component {
   constructor(props){
@@ -13,17 +14,13 @@ export default class SubjectForm extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  /*
-    This method will create a new subject object called newSubject,
-    we will pass this object into our props method addSubject which we inherit
-    from our Subject.js component
-  */
+
   addNewSubject(event){
     event.preventDefault();
     const newSubject = {
       subject: this.state.subject,
       resources: []
-    };
+      };
     this.props.addSubject(newSubject);
   }
 
@@ -32,7 +29,7 @@ export default class SubjectForm extends Component {
       <form>
         <input name="subject" type="text" placeholder="subject" onChange={this.handleTyping}/>
         <br></br>
-        <button onClick={this.addNewSubject}>Add New Subject</button>
+        <button onClick={this.addNewSubject}>Add New Subject</button> <Icon name="book" spin/>
       </form>
     )
   }
