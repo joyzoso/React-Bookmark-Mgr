@@ -1,5 +1,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
+**React Bookmark Manager
+
+Version 1.1 January 2017
+
+## Description
+
+This application allows a user to keep track of their resources as a bookmark manager of URL's. Resources can include links to vidoes, blogs, etc.  User has the ability to Add and delete a resource as well as categorize them into invividual subjects. 
+
+## Technologies Used
+
+Programming Language
+
+- Javascript
+- HTML/CSS
+
+## Web Application Library
+
+ - React
+ - Ajax
+ - Bootstrap
+
+
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
