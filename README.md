@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-**React Bookmark Manager
+## React Bookmark Manager
 
 Version 1.1 January 2017
 
